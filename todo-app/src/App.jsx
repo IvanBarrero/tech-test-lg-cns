@@ -1,20 +1,12 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AddTaskComponent from './components/AddTaskComponent';
-import ListTodosComponent from './components/ListTodosComponent';
 import TodoContextProvider from './context/TodoContextProvider';
+import AppComponent from './components/AppComponent';
 
 function App() {
   return (
     <>
       <TodoContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<ListTodosComponent />}></Route>
-            <Route path='/tasks' element={<ListTodosComponent />}></Route>
-            <Route path='/add-task' element={<AddTaskComponent />}></Route>
-          </Routes>
-        </BrowserRouter>
+        <AppComponent />
       </TodoContextProvider>
     </>
   );
