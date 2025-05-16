@@ -11,29 +11,36 @@ const TaskComponent = ({ editable = false, task = null }) => {
     function handleTitleOnChange(value) {
         setTitle(value);
         if (!isInputEmpty(value)) {
-            let task = { ...editableTask };
-            task.title = value.trim();
+            let editedTask = { ...editableTask, title: value.trim() };
+            if (task) {
+                editedTask.id = task.id;
+            }
 
-            setEditableTask(task);
+            setEditableTask(editedTask);
         }
     }
 
     function handleDescriptionOnChange(value) {
         setDescription(value);
         if (!isInputEmpty(value)) {
-            let task = { ...editableTask, description: value.trim() };
-            //task.description = value.trim();
+            let editedTask = { ...editableTask, description: value.trim() };
+            if (task) {
+                editedTask.id = task.id;
+            }
 
-            setEditableTask(task);
+            setEditableTask(editedTask);
         }
     }
 
     function handleCompletedOnChange(value) {
         setCompleted(value);
-        let task = { ...editableTask, completed: value };
-        task.completed = value;
+        let editedTask = { ...editableTask, completed: value };
+        editedTask.completed = value;
+        if (task) {
+            editedTask.id = task.id;
+        }
 
-        setEditableTask(task);
+        setEditableTask(editedTask);
     }
 
     function isInputEmpty(value) {
@@ -67,8 +74,7 @@ const TaskComponent = ({ editable = false, task = null }) => {
                 />
             </div>
             <div>
-                <label htmlFor='completed        console.log(task);
-'>Completed: </label>
+                <label htmlFor='completed'>Completed: </label>
                 <input
                     type='checkbox'
                     id='completed'

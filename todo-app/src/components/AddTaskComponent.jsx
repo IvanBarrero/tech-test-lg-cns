@@ -13,8 +13,6 @@ const AddTaskComponent = () => {
         e.preventDefault();
         const task = {...editableTask, id: counter};
         setTasks([...tasks, task]);
-        console.log(task);
-        console.log(tasks);
         setCounter(counter+1);
    }
 

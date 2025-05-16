@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import TodoContext from '../context/TodoContext';
-import TaskComponent from './TaskComponent';
+import EditableTaskComponent from './EditableTaskComponent';
 
 const ListTodosComponent = () => {
     const allFilterValue = 'all';
@@ -47,7 +47,7 @@ const ListTodosComponent = () => {
                     {
                         tasks.filter(task => filterTask(task))
                             .map((task) => {
-                                return <li key={task.id}><TaskComponent editable={false} task={task} /></li>
+                                return <li key={task.id}><EditableTaskComponent task={task} /></li>
                             }
                             )
                     }
